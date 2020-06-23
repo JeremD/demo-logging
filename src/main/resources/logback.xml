@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<!-- redirection des logs vers la sortir Console Standard -->
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<!--<Pattern> %-5level %logger{36} - %msg%n</Pattern> -->
+			<Pattern>%logger{36} - %msg%n</Pattern>
+		</encoder>
+	</appender>
+
+	<!-- redirection des logs vers un fichier -->
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>app.log</file>
+		<append>true</append>
+		<immediateFlush>true</immediateFlush>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<!-- App dans la console -->
+	<logger name="dev.console" level="INFO" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<!-- App Service dans un fichier -->
+	<logger name="dev.service" level="DEBUG" additivity="false">
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<root level="ERROR">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>
