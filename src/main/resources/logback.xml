@@ -10,7 +10,7 @@
 		</encoder>
 	</appender>
 
-	<!-- redirection des logs vers un fichier -->
+	<!-- Redirection des logs vers un fichier -->
 	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
 		<file>app.log</file>
 		<append>true</append>
